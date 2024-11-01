@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath>C:\Tosca_Projects\Custom</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Adapters\Controllers\HTML\AGGridRowController.cs" />
+    <Compile Remove="Adapters\HTML\AGGridCellAdapter.cs" />
+    <Compile Remove="Adapters\HTML\AGGridRowAdapter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Tricentis.Automation.HtmlEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.Automation.HtmlEngine.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.Automation.Interaction">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.Automation.Interaction.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.Automation.Remoting">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.Automation.Remoting.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.AutomationBase">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.AutomationBase.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.AutomationObjects">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.AutomationObjects.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.Common">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.Common.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Tricentis.Common.MiscHelper">
+      <HintPath>..\..\..\..\..\Program Files (x86)\TRICENTIS\Tosca Testsuite\TBox\Tricentis.Common.MiscHelper.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="taskkill /F /FI &quot;imagename eq Tricentis.Automation.Agent.exe&quot;" />
+  </Target>
+
+</Project>
